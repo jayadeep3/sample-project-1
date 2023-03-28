@@ -1,7 +1,7 @@
 node{
     
     stage('SCM checkout'){
-        git url: "https://github.com/jayadeep3/sample-project-1.git"
+        git url: "https://github.com/jayadeep3/sample-project-1"
     }
     
     stage('Build Docker Image'){
