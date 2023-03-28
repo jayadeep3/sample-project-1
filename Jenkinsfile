@@ -10,7 +10,7 @@ node {
         sh "tar -cvf myimage321.tar ."
     }
     stage('docker image push to s3'){
-        sh "aws s3 cp myimage321.tar s3://mybucket423"
+        sh "aws s3 cp myimage321.tar s3://mybucket424"
     }
     
 }
