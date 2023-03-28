@@ -1,21 +1,16 @@
-node{
-    
-    stage('SCM checkout'){
-        git url: "https://github.com/jayadeep3/sample-project-1"
+node {
+    stage ('Git Checkout') {
+        git branch: 'test', url: 'https://github.com/jayadeep3/sample-project-1.git'
     }
-    
     stage('Build Docker Image'){
-        sh "docker build -t jayadeep3/image320 ."
-    }
-    
-    stage('Tag docker image'){
-        sh "docker tag jayadeep3/image320 jayadeep3/myapps:1.0"
+        sh "docker build -t myimage322:1.0 ."
     }
     
     stage('Unarchive the image'){
-        sh "tar -cvf jayadeep3/myapps:1.0.tar /home/ubuntu"
+        sh "tar -cvf myimage322.tar ."
     }
-    stage('Docker image push to s3'){
-        sh "aws s3 cp jayadeep3/myapps:1.0.tar s3://mybucket420"
+    stage('docker image push to s3'){
+        sh "aws s3 cp myimage322.tar s3://mybucket422"
     }
+    
 }
